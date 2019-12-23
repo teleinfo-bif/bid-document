@@ -10,7 +10,7 @@
 
   例如当DID URL中包含service字段，则进行service endpoint url的解析，如下所示：
 
-  ![Diagram showing how a DID URL can be dereferencing to a service endpoint URL](../image\did-url-dereferencing.png)
+  ![did-url-dereferencing](../image/did-url-dereferencing.png)
 
   2. # BID DID解析器
 
