@@ -1,6 +1,8 @@
 site_name: bid-document
 pages:
-- 主页 : index.md
+- 主页 : 
+  - 快速开始 : index.md
+  - 术语 : home/terms.md
 - BID 介绍 : 
   - 概述 : introduce/summary.md
   - BID 系统架构 : introduce/architecture.md
