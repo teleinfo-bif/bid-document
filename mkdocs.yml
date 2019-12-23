@@ -1,0 +1,24 @@
+site_name: bid-document
+pages:
+- 主页 : index.md
+- BID 介绍 : 
+  - 概述 : introduce/summary.md
+  - BID 系统架构 : introduce/architecture.md
+  - BID 规范 : introduce/protocol.md
+  - 可验证声明 : introduce/claim.md
+  - BID解析器 : introduce/resolver.md
+  - 多源认证 : introduce/authentication.md
+- BID 体验 : 
+  - BID APP : demo/demo.md
+  #- BID 解析 : introduce/summary.md
+- 应用场景 : apply/apply.md
+- 快速部署及使用 : 
+  - BIF链部署手册 : deploy/bif-deploy.md
+  - 接入BID系统 : deploy/bid.md
+  #- 加入成为信任锚 : deploy/joinauthentication.md
+- 帮助中心 : 
+  - FAQ : help/FAQ.md
+  - 联系我们 : help/contact.md
+
+theme: readthedocs
+
