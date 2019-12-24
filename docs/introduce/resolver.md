@@ -1,4 +1,4 @@
-1. # DID解析器
+# 1.DID解析器
 
   在W3C Spec https://w3c-ccg.github.io/did-resolution 中定义了 DID Resolver的主要功能：
 
@@ -12,7 +12,9 @@
 
   ![did-url-dereferencing](../image/did-url-dereferencing.png)
 
-  2. # BID DID解析器
+  注：该图引用自DID解析协议
+  
+  # 2. BID DID解析器
 
 ### 2.1 bid 解析器地址
 
