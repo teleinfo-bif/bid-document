@@ -4,10 +4,11 @@
 
 - **[概述](../introduce/summary)**
 - **[BID 系统架构](introduce/architecture)**
+- **[DID 基础介绍](../introduce/did)**
 - **[BID 规范](../introduce/protocol)**
-- [**可验证声明**](../introduce/claim)
+- **[可验证声明](../introduce/claim)**
 - **[BID 解析器](../introduce/resolver)**
-- [**多源认证**](../introduce/authentication)
+- **[多源认证](../introduce/authentication)**
 
 ## 2. BID 体验
 

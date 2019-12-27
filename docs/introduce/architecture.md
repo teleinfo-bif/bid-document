@@ -52,7 +52,7 @@ BIF区块链是整合架构中的核心、基础，在BIF中实现了bid标识�
 
 BID APP 是BID数字身份申请和管理工具，通过BID APP，用户可以申请BID、进行身份认证和证书管理。
 
-详见：[BID APP](/demo/demo)
+详见：[BID APP](../../demo/demo)
 
 ## 5. 证书仓库
 
@@ -68,10 +68,10 @@ BID APP 是BID数字身份申请和管理工具，通过BID APP，用户可以�
 
 证书颁发机构即多源认证体系中的认证机构，多源认证不同于以往的单一身份认证体系，BIF可以为实体提供相应的认证源，除此之外用户还可以在第三方可信任的机构进行身份认证。
 
-详见：[多源认证](/introduce/authentication)
+详见：[多源认证](../authentication)
 
 ## 7. BID 解析器
 
 BID 解析器提供的BID的解析服务，能够根据BID 标识查询到对应的DDO 文档内容。
 
-详见：[BID解析器](/introduce/resolver)
+详见：[BID解析器](../resolver)

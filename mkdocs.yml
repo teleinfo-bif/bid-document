@@ -6,6 +6,7 @@ pages:
 - BID 介绍 : 
   - 概述 : introduce/summary.md
   - BID 系统架构 : introduce/architecture.md
+  - DID 基础介绍 : introduce/did.md
   - BID 规范 : introduce/protocol.md
   - 可验证声明 : introduce/claim.md
   - BID解析器 : introduce/resolver.md
