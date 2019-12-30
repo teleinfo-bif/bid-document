@@ -1,16 +1,16 @@
 # Gbif单节点部署文档
 ### 单机部署：
- - 配置好go运行环境，推荐使用CentOS7
- - 配置gbif源码，本地编译通过
- - 执行gbif初始化操作
+ - 配置go运行环境，推荐使用CentOs7
+ - 本地编译gbif源码，生成可执行文件gbif
+ - 执行gbif节点初始化操作
  - 启动gbif节点
- - 创建一个并且解锁账号，用于挖矿
+ - 创建一个账号并解锁，用于挖矿
 
 ### 推荐服务器
-- CentOS7
-- 4核
-- 16G
-- 50G
+- 操作系统：CentOS7
+- CPU: 4核
+- 内存： 16G
+- 磁盘： 50G
 
 ### 节点安装流程
 #### 1. 配置go运行环境：
@@ -34,7 +34,7 @@ source ~/.bashrc
 go version //输出 go version go1.13.5 linux/amd64，代表安装成功
 ```
 
-#### 3. 配置go-bif源码,执行完成后，会在项目根目录生成gbif客执行文件
+#### 3. 配置go-bif源码,执行完成后，会在项目根目录生成gbif可执行文件
 ```shell
 mkdir -p $HOME/code/src/github.com/bif
 cd $HOME/code/src/github.com/bif
@@ -95,7 +95,7 @@ go build github.com/bif/go-bif/cmd/gbif
 ```shell
 ./gbif --networkid 444 --datadir ./data --verbosity 4 --port 44001 --rpc --rpcaddr 0.0.0.0 --rpcport 44002 --rpcapi core,gb,admin,personal,db,net,txpool,bif --ws --wsaddr 0.0.0.0 --wsport 44003 --wsapi core,gb,admin,personal,db,net,txpool --rpccorsdomain '*' console
 ```
-- networkid： gbif网络号，要和genesis.json里面的一致
+- networkid： gbif网络号，必须与genesis.json文件中的networkid一致
 - --verbosity： 日志等级
 - --rpcport： rpc端口号
 - --rpcapi： 根据需要选择开放的rpc类型
@@ -124,7 +124,7 @@ at block: 0 (Wed, 26 Jun 2019 14:31:29 CST)
 personal.newAccount("teleinfo")
 personal.unlockAccount(core.accounts[0], "teleinfo")
 core.accounts[0] //查看刚刚生成的地址
-admin.nodeInfo.enode //查看enode 
+admin.nodeInfo.enode //查看节点信息 
 miner.start()
 ```
 此时，在data/keystore下会有一个文件名为： UTC--2019-12-16T11-18-04.703989000Z--did-bid-6cc796b8d6e2fbebc9b3cf9e 这种格式的文件，此文件即为您的keystore，文件名最后面为地址
@@ -147,7 +147,7 @@ enode格式为: ```enode://4b87eed1cbb9c85abf94f784daa63ed4358726f5fefe702fea77c
     "constantinopleBlock": 1,
     "dpos": {
       "period": 2, //出块时间,单位为秒
-      "witnessesNum": 3, //见证人数量，这里是以4个几点为例，根据3m+1规则,3个即为dpos的最小数量了，所以这里设定为3
+      "witnessesNum": 3, //见证人数量，这里是以4个几点为例，根据3m+1规则,3个即为dpos共识算法的最小见证人数量了，所以这里设定为3
       "witnesses": [
           //TODO
       ]
@@ -217,10 +217,10 @@ validators = ["did:bid:6cc796b8d6e2fbebc9b3cf9e","did:bid:c935bd29a90fbeea87badf
 将0x00000000...00000c0 一长串放入到genesis.json的"extraData"中
 
 ### 配置alloc
-alloc 即为链启动后创世产生的token，这里配置多少地址和对应的token，链产生后，这些地址上就会有相应多的token，填写格式如下：
+alloc 即为链启动后创世产生的token，这里配置地址和对应的token，链产生后，这些地址上就会有相应多的token，填写格式如下：
 ```shell
-    "did:bid:6cc796b8d6e2fbebc9b3cf9e": { //要创世时发配token的地址
-      "balance": "0x446c3b15f9926687d2c40534fdb564000000000000" //设定这个地址是多少钱
+    "did:bid:6cc796b8d6e2fbebc9b3cf9e": { //链启动后创世时分配token的地址
+      "balance": "0x446c3b15f9926687d2c40534fdb564000000000000" //设定这个地址的账户余额
     }
 ```
 
@@ -267,7 +267,7 @@ alloc 即为链启动后创世产生的token，这里配置多少地址和对应
 }
 ```
 
-此时退出上面启动的三个超级节点(在gbif console 中输入exit即可退出)，将新配置出来的genesis.json放到项目根目录下，分别打开四个命令行窗口
+此时超级节点初始化完成，退出后(在gbif console 中输入exit即可退出)，将新配置出来的genesis.json放到项目根目录下，分别打开四个命令行窗口
 ```shell
 //窗口一：
 cd $HOME/code/src/github.com/bif/go-bif
