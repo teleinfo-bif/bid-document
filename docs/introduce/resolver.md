@@ -12,7 +12,7 @@
 
   ![did-url-dereferencing](../image/did-url-dereferencing.png)
 
-  注：该图引用自DID解析协议
+  `注：该图引用自DID解析协议`
   
   # 2. BID DID解析器
 
