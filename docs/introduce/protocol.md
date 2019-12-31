@@ -7,17 +7,16 @@ BIF DID（以下简称BID）方法规范符合W3C社区小组当前发布的DID�
 # 2. 摘要
 ----
 
-为人、企业、设备和数字对象等提供分布式标识和区块链数字身份服务，旨在构建一套去中心化的、权利下放的、数据安全、隐私得到保护的并且好用的、灵活的标识符系统，能够解决人、企业、设备和数字对象等的可信连接、交互和互操作，实现万物互联、信任万物的愿景。
+为实体和数字对象等提供分布式标识和身份服务，旨在构建一套去中心化的、权利下放的、数据安全、隐私得到保护的并且好用的、灵活的标识符系统，能够为人、企业、设备和数字对象之间建立可信连接和价值交互，实现万物互联、信任万物的愿景。
 
-BID是⼀个去中心化的身份标识协议，BID具有去中心化、自主管理、隐私保护、安全易用等特点。每⼀个BID都会对应到⼀个BID描述对象（BID DDO）。
+BID采用去中心化的身份标识协议，具有去中心化、自主管理、隐私保护、安全易用等特点。每⼀个BID都会对应⼀个BID描述对象（BID DDO）。
 
 # 3. BID 命名空间
 -----------
 
 标识此DID方法的method name 是： bid
 
-使用此方法的DID
-必须以下前缀开头：did:bid。根据DID规范，此字符串必须为小写。在前缀之后的DID的剩余部分是由特定算法生成。
+使用此方法的DID必须以前缀 did:bid 开头。根据DID规范，此字符串必须为小写。在前缀之后的DID的剩余部分由特定算法生成。
 
 # 4. 适用系统
 --------
@@ -42,7 +41,7 @@ subnamespace = ALPHA *(ALPHA / DIGIT / "_" / "-")
 # 6. BID DDO规范
 -----------
 
-BID对应的身份描述对象DDO存储在BIF区块链，由DDO的控制人写入到区块链，并向所有用户开放读取。
+BID对应的身份描述对象DDO存储在BIF区块链上，由DDO的控制人写入到区块链，并向所有用户开放读取。
 
 DDO规范包含如下信息：
 
@@ -99,7 +98,7 @@ BIdContract是在BIF区块链平台上BID协议的智能合约实现。借助BId
 
 ### 设置昵称
 
-用户调用SetBidName方法进行设置和更新bid昵称。只有authorizations=all的公钥才能进行修改
+用户调用SetBidName方法进行设置和更新bid昵称。只有authorizations=all的公钥才能修改
 
 ```
 bool SetBidName(string name);
@@ -109,8 +108,7 @@ name:bid昵称，如果name为空，则昵称字段默认为bid标识符
 
 ### 查询
 
-查询身份信息,根据bid或者昵称
-name查询用户的DID文档信息，返回值为DID文档的json串
+查询身份信息,根据bid或者昵称name查询用户的DID文档信息，返回值为DID文档的json串
 
 ```
 byte[] findDDOByBid(string type,string value)
@@ -123,7 +121,7 @@ byte[] findDDOByBid(string type,string value)
 
 ### 授权
 
-BID支持用户进行授权控制及用户可以授权其他bid对当前bid进行控制，例如授权其他bid更新DDO文档以及其他操作。用户调用addBid方法为其他BID授权,只有authorizations=all的公钥才能进行添加
+BID支持用户授权控制，即用户可以授权其他bid对当前bid进行控制，例如授权其他bid更新DDO文档等操作。用户调用addBid方法为其他bid授权,只有authorizations=all的公钥才能进行添加
 
 ```
  bool addPublicKey(string type,string bid,string authorizations)
@@ -139,7 +137,7 @@ BID支持用户进行授权控制及用户可以授权其他bid对当前bid进�
 
 ### 取消授权
 
-用户调用deleteBid方法删除对其他BID的授权,只有authorizations=all的公钥才能进行删除，授权为all的账户不可以进行自删除
+用户调用deleteBid方法取消对其他BID的授权,只有authorizations=all的公钥才能进行取消该授权，获得授权账户不可以自行取消授权
 
 ```
  bool deletePublicKey(string bid)
@@ -149,7 +147,7 @@ BID支持用户进行授权控制及用户可以授权其他bid对当前bid进�
 
 ### 添加认证凭证
 
-BID支持用户进行多源身份认证，认证结束后用户可以将可信声明的摘要信息加入DDO文档，以便后续验证以及管理。用户调用addProof方法添加可信声明信息,只有authorizations=all的公钥才能进行添加
+BID支持用户进行多源身份认证，认证结束后用户可以将可信声明的摘要信息加入DDO文档，便于后续验证和管理。用户调用addProof方法添加可信声明信息,只有authorizations=all的公钥才能进行添加
 
 ```
   bool addProof(string type,string proofId)
